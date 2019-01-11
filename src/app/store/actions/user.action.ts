@@ -2,7 +2,8 @@ import { Action } from '@ngrx/store';
 
 export enum UserActionTypes {
   UpdateName = '[User] Update Name',
-  IncrementClick = '[User] Increment Count'
+  IncrementClick = '[User] Increment Count',
+  testDummy = '[User] Test Dummy'
 }
 
 export class UpdateNameAction implements Action {
@@ -15,4 +16,9 @@ export class IncrementClickAction implements Action {
   readonly type = UserActionTypes.IncrementClick;
 }
 
-export type UserActions = UpdateNameAction | IncrementClickAction;
+export class DummyAction implements Action {
+  readonly type = UserActionTypes.testDummy;
+}
+
+
+export type UserActions = UpdateNameAction | IncrementClickAction | DummyAction;

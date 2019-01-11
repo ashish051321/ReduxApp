@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import * as fromUserStore from '../app/store/reducers';
+import * as fromUserActions from '../app/store/actions/user.action';
 
 @Component({
   selector: 'app-root',
@@ -26,12 +27,12 @@ export class AppComponent {
 
   }
   updateName(name) {
-    console.log("============="+name.value);
-   this.myStore.dispatch({type:'changename',payload:name.value});
+    // console.log("============="+name.value);
+   this.myStore.dispatch(new fromUserActions.UpdateNameAction(name.value));
   }
 
   incrementCount() {
-    this.myStore.dispatch({type:'incrementclick'});
+    this.myStore.dispatch(new fromUserActions.IncrementClickAction);
    
   }
 }

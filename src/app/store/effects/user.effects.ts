@@ -21,9 +21,10 @@ export class UserEffects {
       return this.http.get<any>(`https://swapi.co/api/people/1/`)
         .pipe(
           map((person) => {
-            return new fromUserActions.UpdateNameAction("Ashish");
+            return new fromUserActions.DummyAction;
           })
         )
+
     })
   );
 }

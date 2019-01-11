@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -14,7 +15,7 @@ import { UserEffects } from './store/effects/user.effects';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([UserEffects])
