@@ -14,3 +14,12 @@ store
 actions
 reducers
 effects
+
++
+
+StoreModule.forFeature(...) -- This will bring in almost all of the features of ngRx in our program.
+
+
+
+Why almost ?
+Because, there is one more thing to add - ngrx/Entity. That we will do in a searate branch.
