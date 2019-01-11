@@ -8,6 +8,9 @@ Please refer this file in each branch to know its implementation.
 
 #Implementation
 
-Here, I have just created a very simple ngrx implementation wthout using a lot of conventions.
-Just the bare minimum.
+Now, here we will implement ngrx with the followin gfeatures:-
 
+store
+actions
+reducers
+effects

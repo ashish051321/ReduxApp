@@ -1,44 +1,43 @@
 import {
-  ActionReducer,
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
-  MetaReducer,
-  Action
-} from '@ngrx/store';
-import { environment } from '../../../environments/environment';
+  MetaReducer
+} from "@ngrx/store";
 
+
+import { environment } from "../../../environments/environment";
+import * as fromUserReducer from "./user.reducer";
 
 export interface State {
-  user:string,
-  clicks:number
+  userState: fromUserReducer.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-user: userReducer,
-clicks: clickReducer
+  userState: fromUserReducer.reducer,
 };
 
-export  function userReducer(state="Ashish",action){
-  console.log("=== userReducer execution ===");
-  if(action.type == 'changename') {
-    return action.payload;
-  }
-  else{
-    return state;
-  }
+export const metaReducers: MetaReducer<State>[] = !environment.production
+  ? []
+  : [];
 
-}
+// UserState  selector
+export const selectUserState = createFeatureSelector<fromUserReducer.State>("userState");
 
-export  function clickReducer(state=0,action){
-  console.log("=== clickReducer execution ===");
-  console.log(state);
-  if(action.type == 'incrementclick') {
-    return ++state;
-  }
-  else{
-    return state;
-  }
-}
+//These are the state slices that I am exporting
 
-export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+//entire userState object
+export const getUserState = createSelector(selectUserState,(state)=>state);
+
+//the username only
+export const getUserName = createSelector(
+  selectUserState,
+  fromUserReducer.getUser
+);
+
+// the clickcoint only
+export const getClickCount = createSelector(
+  selectUserState,
+  fromUserReducer.getCount
+);
+

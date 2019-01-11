@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-
+import * as fromUserStore from '../app/store/reducers';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ export class AppComponent {
   store$:Observable<any>;
 
   constructor(private myStore:Store<any>){
-    this.store$ = myStore;
+    this.store$ = this.myStore.select(fromUserStore.getUserState);
   }
 
   ngOnInit(){
