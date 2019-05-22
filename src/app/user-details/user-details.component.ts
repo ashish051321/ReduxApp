@@ -21,10 +21,10 @@ export class UserDetailsComponent {
   }
 
   ngOnInit(){
-    this.myStore.subscribe(data =>{
-      console.log("==== store emission ===");
-      console.log(data);
-    });
+    // this.myStore.subscribe(data =>{
+    //   console.log("==== store emission ===");
+    //   console.log(data);
+    // });
 
   }
   updateName(name) {
