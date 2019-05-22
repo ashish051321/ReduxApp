@@ -1,0 +1,22 @@
+:host {
+    .pill {
+        display: inline-block;
+        padding: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        letter-spacing: 3px;
+
+    }
+
+    .selectedTab {
+        background-color: lightcoral;
+    }
+
+    #printStore {
+        position:fixed;
+        bottom:50px;
+        right:50px;
+        border:1px dotted white;
+        border-radius:5px;
+    }
+}

@@ -1,0 +1,10 @@
+<h2>Grocery List</h2>
+
+<ul>
+  <li *ngFor="let item of (items$ | async)"> {{item}}</li>
+</ul>
+<p *ngIf="!(items$ | async)">No Items</p>
+
+<input type="text" (keyup.enter)="addItem(newItem.value); newItem.value='';" placeholder="Enter item" #newItem>
+<p>-------------- or ---------------</p>
+<div><button (click)="flushGroc()">Flush Grocery List</button></div>

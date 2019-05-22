@@ -1,18 +1,4 @@
-<h2>User Details</h2>
-<section>
-  <span>Username: {{(store$|async).name}}</span>
-</section>
-
-<section>
-  <span>Clicks: {{(store$|async).clickCount}}</span>
-</section>
-<hr>
-<section>
-  <input type="text" placeholder="Enter name" name="username" #nameTextField><br>
-  <button (click)="updateName(nameTextField)">update</button> 
-</section>
-<section>
-  <button (click)="incrementCount()">increment click count</button> 
-</section>
-  
-  
+<a routerLink="user" class="pill" routerLinkActive="selectedTab">User Details</a>
+<a routerLink="groc" class="pill" routerLinkActive="selectedTab">Grocery List</a>
+<router-outlet></router-outlet>
+<button id="printStore" (click)="printStore()">Console log the store</button>

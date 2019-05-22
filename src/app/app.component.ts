@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-
-import * as fromUserStore from '../app/store/reducers';
-import * as fromUserActions from '../app/store/actions/user.action';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -11,28 +7,14 @@ import * as fromUserActions from '../app/store/actions/user.action';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(private store: Store<any>) {
 
-  title = 'reduxApp1';
-  store$:Observable<any>;
-
-  constructor(private myStore:Store<any>){
-    this.store$ = this.myStore.select(fromUserStore.getUserState);
   }
-
-  ngOnInit(){
-    this.myStore.subscribe(data =>{
-      console.log("==== store emission ===");
+  printStore() {
+    this.store.subscribe(data => {
+      console.log('********* Store **************');
       console.log(data);
-    });
-
-  }
-  updateName(name) {
-    // console.log("============="+name.value);
-   this.myStore.dispatch(new fromUserActions.UpdateNameAction(name.value));
+    })
   }
 
-  incrementCount() {
-    this.myStore.dispatch(new fromUserActions.IncrementClickAction);
-   
-  }
 }
